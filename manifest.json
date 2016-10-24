@@ -1,0 +1,12 @@
+{
+	"manifestVersion": "v0",
+	"description": "sample authz plugin for Docker that blocks docker volume commands",
+	"documentation": "https://docs.docker.com/engine/extend/plugins/",
+	"entrypoint": ["/go/bin/authz-plugin"],
+	"network": {
+		   "type": "host"
+		   },
+	"interface" : {
+		   "socket": "authz-plugin.sock"
+	}
+}
