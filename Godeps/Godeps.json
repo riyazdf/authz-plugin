@@ -16,6 +16,11 @@
 			"Rev": "6d9ae300aaf85d6acd2e5424081c7fcddb21dab8"
 		},
 		{
+			"ImportPath": "github.com/Sirupsen/logrus/hooks/syslog",
+			"Comment": "v0.10.0-18-g6d9ae30",
+			"Rev": "6d9ae300aaf85d6acd2e5424081c7fcddb21dab8"
+		},
+		{
 			"ImportPath": "github.com/coreos/go-systemd/activation",
 			"Comment": "v12",
 			"Rev": "43e4800a6165b4e02bb2a36673c54b230d6f7b26"

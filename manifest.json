@@ -4,7 +4,7 @@
 	"documentation": "https://docs.docker.com/engine/extend/plugins/",
 	"entrypoint": ["/go/bin/authz-plugin"],
 	"interface" : {
-		   "types": ["docker.authzDriver:1.0"],
+		   "types": ["docker.authzDriver/1.0"],
 		   "socket": "authz-plugin.sock"
 	}
 }

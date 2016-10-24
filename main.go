@@ -2,10 +2,12 @@ package main
 
 import (
 	"fmt"
+	"log/syslog"
 	"os"
 	"regexp"
 
 	"github.com/Sirupsen/logrus"
+	logrus_syslog "github.com/Sirupsen/logrus/hooks/syslog"
 	"github.com/docker/go-plugins-helpers/authorization"
 )
 
@@ -22,6 +24,16 @@ func main() {
 
 // NewAuthZPlugin returns a new authorization plugin, as specified by the AuthZ interface
 func NewAuthZPlugin() authorization.Plugin {
+	logrus.SetOutput(os.Stdout)
+	logrus.SetLevel(logrus.DebugLevel)
+	hook, err := logrus_syslog.NewSyslogHook("", "", syslog.LOG_DEBUG, "")
+	if err != nil {
+		// for now this is best effort due to CI integration
+		logrus.Errorf("Error retrieving syslog hook: %v", err)
+	} else {
+		logrus.Debug("Adding syslog hook for logging...")
+		logrus.AddHook(hook)
+	}
 	return authorizer{}
 }
 
